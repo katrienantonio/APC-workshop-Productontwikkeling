@@ -1,0 +1,3143 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Hands-on Workshop in R</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Katrien Antonio, Thomas de Boer &amp; Gemma van de Sande" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="css/metropolis.css" type="text/css" />
+    <link rel="stylesheet" href="css/metropolis-fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/my-css.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Hands-on Workshop in R
+## APC module Productontwikkeling, UvA
+<html>
+<div style="float:left">
+
+</div>
+<hr align='center' color='#116E8A' size=1px width=97%>
+</html>
+### Katrien Antonio, Thomas de Boer &amp; Gemma van de Sande
+### <a href="https://www.github.com/katrienantonio/APC-workshop-Productontwikkeling">Productontwikkeling R workshop</a> | November 3, 2020
+
+---
+
+
+
+
+
+
+class: inverse, center, middle
+name: prologue
+
+# Prologue
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#FAFAFA' size=1px width=796px&gt;&lt;/html&gt;
+
+---
+
+name: introduction
+
+# Introduction
+
+### Course
+
+&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 496 512"&gt;&lt;path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/&gt;&lt;/svg&gt; https://github.com/katrienantonio/APC-workshop-Productontwikkeling
+
+The course repo on GitHub, where you can find the data sets, lecture sheets, R scripts and R markdown files.
+
+--
+
+### Us
+
+&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/&gt;&lt;/svg&gt; [https://katrienantonio.github.io/](https://katrienantonio.github.io/)
+
+&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"/&gt;&lt;/svg&gt; [katrien.antonio@kuleuven.be](mailto:katrien.antonio@kuleuven.be) &amp; [thomas.de.boer@movir.nl](mailto:thomas.de.boer@movir.nl) &amp; [gemma.van.de.sande@asr.nl](mailto:gemma.van.de.sande@asr.nl)
+
+&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 640 512"&gt;&lt;path d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"/&gt;&lt;/svg&gt; (Katrien) Professor in insurance data science, teacher and coordinator of the APC module in Insurance Data Science
+
+---
+
+name: checklist
+
+# Checklist
+
+☑ Do you have a fairly recent version of R?
+  
+  ```r
+  version$version.string
+  ## [1] "R version 4.0.3 (2020-10-10)"
+  ```
+
+☑ Do you have a fairly recent version of RStudio? 
+  
+  ```r
+  RStudio.Version()$version
+  ## Requires an interactive session but should return something like "[1] ‘1.3.1093’"
+  ```
+
+☑ Have you installed the R packages listed in the software requirements? 
+
+or
+
+☑ Have you created an account on RStudio Cloud (to avoid any local installation issues)?
+  
+---
+
+name: why-this-course # inspired by Grant McDermott intro lecture
+
+# Why this session?
+
+### The goals of this session .font140[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 512 512"&gt;&lt;path d="M505.05 19.1a15.89 15.89 0 0 0-12.2-12.2C460.65 0 435.46 0 410.36 0c-103.2 0-165.1 55.2-211.29 128H94.87A48 48 0 0 0 52 154.49l-49.42 98.8A24 24 0 0 0 24.07 288h103.77l-22.47 22.47a32 32 0 0 0 0 45.25l50.9 50.91a32 32 0 0 0 45.26 0L224 384.16V488a24 24 0 0 0 34.7 21.49l98.7-49.39a47.91 47.91 0 0 0 26.5-42.9V312.79c72.59-46.3 128-108.4 128-211.09.1-25.2.1-50.4-6.85-82.6zM384 168a40 40 0 1 1 40-40 40 40 0 0 1-40 40z"/&gt;&lt;/svg&gt;]
+
+--
+
+* develop practical .KULbginline[data handling and cleaning foundations]
+
+--
+
+* visualize and explore data 
+
+--
+
+* .KULbginline[recap] covering the basics of linear regression models, generalized linear models and (a bit of) generalized additive models in actuarial science or econometrics
+
+--
+
+* learn by doing, get you started (in particular when you have limited experience in R). 
+
+--
+
+&lt;br&gt;
+
+&gt; *"In short, we will cover things that we wish someone had taught us in our undergraduate programs."* 
+&gt; &lt;br&gt;
+&gt; .font80[This quote is from the [Data science for economists course](http://github.com/uo-ec607/lectures) by Grant McDermott.]
+
+---
+
+class: inverse, center, middle
+name: universe
+
+# What's out there - the R universe
+
+---
+
+# What is R?
+
+&gt; &lt;font size="+2"&gt; &lt;p align="justify"&gt;The R environment is an integrated suite of software facilities for data manipulation, calculation and graphical display.&lt;/p&gt;&lt;/font&gt;
+
+--
+
+&lt;/br&gt;
+
+A brief history:
+
+- R is a dialect of the S language. 
+
+--
+
+- R was written by .KULbginline[R]obert Gentleman and .KULbginline[R]oss Ihaka in 1992. 
+
+--
+
+- The R source code was first released in 1995.
+
+--
+
+- In 1998, the Comprehensive R Archive Network [CRAN](http://CRAN.R-project.org/) was established.
+
+--
+
+- The first official release, R version 1.0.0, dates to 2000-02-29. Currently R 4.0.3 (October, 2020).
+
+--
+
+- R is open source via the [GNU General Public License](https://en.wikipedia.org/wiki/GNU_General_Public_License).
+
+
+---
+
+# Explore the R architecture
+
+- R is like a car's engine
+
+- RStudio is like a car's dashboard, an integrated development environment (IDE) for R.
+
+
+R: Engine            |  RStudio: Dashboard
+:-------------------------:|:-------------------------:
+&lt;img src="img/engine.jpg" alt="Drawing" style="height: 300px;"/&gt;  |  &lt;img src="img/dashboard.jpg" alt="Drawing" style="height: 300px;"/&gt;
+
+---
+
+# How do I code in R?
+
+Keep in mind:
+
+- unlike other software like Excel, STATA, or SAS, R is an interpreted language
+
+- no point and click in R!
+
+- .KULbginline[you have to program in R]!
+
+R .KULbginline[packages] extend the functionality of R by providing additional functions, and can be downloaded for free from the internet.
+
+R: A new phone           |  R Packages: Apps you can download
+:-------------------------:|:-------------------------:
+&lt;img src="img/iphone.jpg" alt="Drawing" style="height: 150px;"/&gt;  |  &lt;img src="img/apps.jpg" alt="Drawing" style="height: 150px;"/&gt;
+
+---
+
+# How to install and load an R package?
+
+.pull-left[
+
+Install the {ggplot2} package for data visualisation
+
+
+```r
+install.packages("ggplot2")
+```
+
+Load the installed package
+
+
+```r
+library(ggplot2)
+```
+
+And give it a try
+
+
+```r
+head(diamonds)
+ggplot(diamonds, aes(clarity, fill = cut)) + 
+  geom_bar() + theme_bw()
+```
+
+Packages are developed and maintained by R users worldwide. 
+
+They are shared with the R community through CRAN: now 16,460 packages online (on November 2, 2020)!
+
+]
+
+
+.pull-right[
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/try_ggplot_plot-1.svg" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+
+]
+
+---
+
+name: why-R
+
+# Why R and RStudio? 
+
+.center[
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/indeeddotcom-1.svg" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;br&gt;
+
+.footnote[This graph is created from the search results obtained via [www.indeed.com](https://www.indeed.com) (on Jan 12, 2020), using Grant McDermott's code for `ggplot2`, see lecture 1 in his [Data science for economists course](http://github.com/uo-ec607/lectures).]
+
+---
+
+# Why R and RStudio? (cont.)
+
+### Data science positivism
+
+- Next to Python, R has become the *de facto* language for data science, with a cutting edge *machine learning toolbox*.
+- See: [The Popularity of Data Science Software](http://r4stats.com/articles/popularity/)
+- R is open-source with a very active community of users spanning academia and industry.
+
+--
+
+### Bridge to actuarial science, econometrics and other tools
+
+- R has all of the statistics and econometrics support, and is amazingly adaptable as a “glue” language to other programming languages and APIs.
+- R does not try to be everything to everyone. The RStudio IDE and ecosystem allow for further, seemless integration (with e.g. python, keras, tensorflow or C).
+- Widely used in actuarial undergraduate programs 
+
+--
+
+### Disclaimer + Read more
+
+- It's also the language that we know best.
+- If you want to read more: [R-vs-Python](https://blog.rstudio.com/2019/12/17/r-vs-python-what-s-the-best-for-language-for-data-science/), [when to use Python or R](https://www.datacamp.com/community/blog/when-to-use-python-or-r) or [Hadley Wickham on the future of R](https://qz.com/1661487/hadley-wickham-on-the-future-of-r-python-and-the-tidyverse/)
+
+---
+
+class: clear, center, middle
+
+background-image: url("img/tidyverse2.1.png")
+background-size: cover
+background-size: 65% 
+background-position: center
+
+---
+
+# Welcome to the tidyverse!
+
+&gt;&lt;p align="justify"&gt;The .KULbginline[tidyverse] is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures. &lt;/p&gt;
+
+&lt;center&gt;
+&lt;img src="img/tidyverse_wide.png" width="750"/&gt;
+&lt;/center&gt;
+
+More on: [tidyverse](https://www.tidyverse.org).
+
+Install the packages with `install.packages("tidyverse")`. Then run `library(tidyverse)` to load the core tidyverse.
+
+---
+
+# Principles of tidy data
+
+Three interrelated rules from the [R for data science](https://r4ds.had.co.nz/) book by Garrett Grolemund and Hadley Wickham:
+
+1. Each variable must have its own column.
+2. Each observation must have its own row.
+3. Each value must have its own cell.
+
+&lt;center&gt;
+&lt;img src="img/tidy_data.png" width="750"/&gt;
+&lt;/center&gt;
+
+.footnote[This figure is taken from Chapter 12 on Tidy data in [R for data science](https://r4ds.had.co.nz/).]
+
+---
+
+# Workflow of a data scientist
+
+Here is a model of the .hi-pink[tools needed in a typical data science project]: 
+
+&gt; &lt;p align="justify"&gt; Together, tidying and transforming are called &lt;b&gt;wrangling&lt;/b&gt;, because getting your data in a form that’s natural to work with often feels like a fight! &lt;/p&gt;
+
+&gt; &lt;p align="justify"&gt; Models are complementary tools to visualisation. Once you have made your questions sufficiently precise, you can use a model to answer them. Models are a fundamentally &lt;b&gt;mathematical or computational tool&lt;/b&gt;, so they generally scale well. But every model makes &lt;b&gt;assumptions&lt;/b&gt;, and by its very nature a model cannot question its own assumptions. That means &lt;b&gt;a model cannot fundamentally surprise you&lt;/b&gt;.&lt;/p&gt;
+
+&lt;center&gt;
+&lt;img src="img/data_science_pipeline.png" width="600"/&gt;
+&lt;/center&gt;
+
+.footnote[Figure and quote taken from Chapter 1 in [R for data science](https://r4ds.had.co.nz/).]
+
+---
+
+# Today's Outline
+
+.pull-left[
+
+* [Prologue](#prologue)
+
+* [What's out there: the R universe](#universe)
+
+  - why R and RStudio?
+  - welcome to the tidyverse!
+  - principles of tidy data
+  - workflow of a data scientist
+
+* [Data wrangling and visualisation](#wrangling)
+
+  - tibbles
+  - pipe operator `%&gt;%`
+  - {dplyr} instructions
+  - {ggplot2} for data visualisation
+  - what else is there?
+
+]
+
+.pull-right[
+
+* [Data sets used in the workshop](#data-sets)
+
+  - MTPL data
+  - Aemas housing data
+  - AOV data, country and company level
+  
+* [Building linear and generalized linear models in R](#model-building)
+
+  - tidy model output with {broom}
+  - linear regression with `lm` 
+  - fitting and building GLMs with `glm` 
+  
+
+]
+
+
+---
+
+class: inverse, center, middle
+name: wrangling
+
+# Data wrangling and visualisation 
+
+---
+
+# A tibble instead of a data.frame &lt;img src="img/tibble.png" class="title-hex"&gt; 
+
+Within the tidyverse `tibble` is a modern take on a `data.frame`:
+
+- keep the features that have stood the test of time
+
+- drop the features that used to be convenient but are now frustrating. 
+
+--
+
+You can use: 
+
+- `tibble()` to create a new tibble
+
+- `as_tibble()` transforms an object (e.g. a data frame) into a tibble.
+
+--
+
+Quick example: explore the differences!
+
+
+```r
+mtcars
+# install.packages("tidyverse")
+library(tidyverse)
+as_tibble(mtcars)
+```
+
+---
+
+# Chains with the pipe operator &lt;img src="img/pipe.png" class="title-hex"&gt;
+
+In R, the pipe operator is `%&gt;%`. 
+
+It takes the output of one statement and makes it the input of the next statement. 
+
+When describing it, you can think of it as a “THEN”; with this operator it becomes easy to chain a sequence of calculations. 
+
+For example, when you have an input data and want to call functions `foo` and `bar` in sequence, you can write `data %&gt;% foo %&gt;% bar`.
+
+--
+
+A first example: 
+
+- take the `diamonds` data (from the {ggplot2} package)
+
+- then subset
+
+
+```r
+diamonds %&gt;% filter(cut == "Ideal")
+```
+
+--
+
+Some excellent blog posts about this operator: [Pipes in R tutorial for beginners](https://www.datacamp.com/community/tutorials/pipe-r-tutorial) and [how to write this in base R](https://gist.github.com/hadley/c430501804349d382ce90754936ab8ec).
+
+---
+
+# Data manipulation verbs &lt;img src="img/dplyr.png" class="title-hex"&gt;
+
+The {dplyr} package holds many useful data manipulation verbs:
+
+- `mutate()` adds new variables that are functions of existing variables
+
+- `select()` picks variables based on their names
+
+- `filter()` picks cases based on their values
+
+- `summarise()` reduces multiple values down to a single summary
+
+- `arrange()` changes the ordering of the rows.
+
+These all combine naturally with `group_by()` which allows you to perform any operation “by group”.
+
+--
+
+A first example: 
+
+
+```r
+diamonds %&gt;% mutate(price_per_carat = price/carat) %&gt;% filter(price_per_carat &gt; 1500)
+```
+
+or
+
+
+```r
+diamonds %&gt;% group_by(cut) %&gt;% summarize(price = mean(price), carat = mean(carat))
+```
+
+---
+
+# Plots with ggplot2 &lt;img src="img/ggplot2.png" class="title-hex"&gt;
+
+The aim of the {ggplot2} package is to create elegant data visualisations using the .hi-pink[grammar of graphics]. 
+
+--
+
+Here are the basic steps:
+
+- begin a plot with the function `ggplot()` creating a coordinate system that you can add layers to
+
+- the first argument of `ggplot()` is the dataset to use in the graph
+
+--
+
+A first example
+
+
+```r
+library(ggplot2)
+ggplot(data = mpg)
+ggplot(mpg)
+```
+
+creates an empty graph.
+
+You will now add layers to this graph!
+
+---
+
+# Plots with ggplot2 &lt;img src="img/ggplot2.png" class="title-hex"&gt;
+
+You complete your graph by adding one or more .hi-pink[layers] to `ggplot()`. 
+
+--
+
+For example: 
+
+- `geom_point()` adds a layer of points to your plot, which creates a scatterplot
+
+- `geom_smooth()` adds a smooth line
+
+- `geom_bar` a bar plot
+
+and many more, see [ggplot2 documentation](https://ggplot2.tidyverse.org/).
+
+--
+
+Each `geom` function in `ggplot2` takes an aesthetic mapping argument: 
+
+- maps variables in your dataset to visual properties
+
+- always paired with `aes()` and the `\(x\)` and `\(y\)` arguments of `aes()` specify which variables to map to the `\(x\)` and `\(y\)` axes.
+
+---
+
+class: clear
+
+.pull-left[
+
+
+```r
+library(ggplot2)
+ggplot(mpg, `aes(displ, hwy, colour = class)`) + 
+  `geom_point()` + `theme_bw()`
+
+```
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-9-1.svg" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+  
+Extend the empty graph now with (here: global) aesthetic mapping argument `aes(displ, hwy, colour = class)`.
+
+This implies: `displ` on the x-axis, `hwy` on the y-axis and `class` to differentiate the color of the plotting symbol. 
+
+With `geom_point` you add a layer of points to the empty graph.
+
+`theme_bw()` changes the `ggtheme` to a simple black-and-white theme.
+
+]
+
+
+---
+
+# What else is there? 
+
+Recall 
+
+&gt;&lt;p align="justify"&gt;The .KULbginline[tidyverse] is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures. &lt;/p&gt;
+
+There are .KULbginline[(multiple) alternative ways] to do what the packages and functions in the tidyverse do. 
+
+For instance: 
+
+- base R
+- the {data.table} package
+
+You can read more about comparisons on e.g. [how to write this in base R](https://gist.github.com/hadley/c430501804349d382ce90754936ab8ec) or [Base R, the tidyverse, and data.table: a comparison of R dialects to wrangle your data](https://wetlandscapes.com/blog/a-comparison-of-r-dialects/).
+
+
+---
+
+class: inverse, center, middle
+name: data-sets
+
+# Data sets used in the session 
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#FAFAFA' size=1px width=796px&gt;&lt;/html&gt;
+
+
+---
+
+# Data sets used in this session - MTPL &lt;img src="img/pipe.png" class="title-hex"&gt; &lt;img src="img/dplyr.png" class="title-hex"&gt; &lt;img src="img/ggplot2.png" class="title-hex"&gt;
+
+We illustrate some first data handling steps on the Motor Third Party Liability data set. There are 163,231 policyholders in this data set. 
+
+The frequency of claiming (`nclaims`) and corresponding severity (`avg`, the amount paid on average per claim reported by a policyholder) are the .KULbginline[target variables] in this data set. 
+
+Predictor variables are: 
+
+* the exposure-to-risk, the duration of the insurance coverage (max. 1 year)
+* factor variables, e.g. gender, coverage, fuel
+* continuous, numeric variables, e.g. age of the policyholder, age of the car
+* spatial information: postal code (in Belgium) of the municipality where the policyholder resides.
+
+More details in [Henckaerts et al. (2018, Scandinavian Actuarial Journal)](https://katrienantonio.github.io/projects/2019/06/13/machine-learning/#data-driven) and [Henckaerts et al. (2019, arxiv)](https://katrienantonio.github.io/projects/2019/06/13/machine-learning/#tree-based-pricing).
+
+---
+
+# Data sets used in this session - MTPL &lt;img src="img/pipe.png" class="title-hex"&gt; &lt;img src="img/dplyr.png" class="title-hex"&gt; &lt;img src="img/ggplot2.png" class="title-hex"&gt;
+
+You can load the data from a .R script in the course material:
+
+
+```r
+# install.packages("rstudioapi")
+dir &lt;- dirname(rstudioapi::getActiveDocumentContext()$path)
+setwd(dir)
+mtpl_orig &lt;- read.table('./data/PC_data.txt', 
+                                  header = TRUE)
+mtpl_orig &lt;- as_tibble(mtpl_orig)
+```
+
+If you work in an R notebook or R markdown file, you can also go for:
+
+```r
+# install.packages("here")
+library(here)
+dir &lt;- here::here()   
+setwd(dir) 
+mtpl_orig &lt;- read.table('./data/PC_data.txt', 
+                                  header = TRUE)
+mtpl_orig &lt;- as_tibble(mtpl_orig)
+```
+
+The last instruction transforms `mtpl_orig` into a `tibble`.
+
+---
+
+class: clear
+
+These instructions are recommended because they avoid referring to a specific working directory on your computer, e.g.
+
+
+```r
+setwd("C:\\Users\\u0043788\\Dropbox\\AOV module APC") 
+mtpl_orig &lt;- read.table('PC_data.txt', header = TRUE)
+```
+
+--
+
+If you organize your data analysis or project in a folder on your computer that holds all relevant files, then the above instructions allow you (and your colleagues) to get started right away. 
+
+The only thing you need is an organized file structure.
+
+--
+
+The {rstudioapi} package is developed for RStudio. The {here} library is more general.
+
+Do note that when working in a .Rmd, {here} will use the folder that markdown lives in as the working directory, but if you are working in a script (.R) the working directory is the top level of the project file.
+
+---
+
+class: clear
+name: explore-data
+
+First of all, we explore the structure of `mtpl_orig` with `str()`.
+
+
+
+
+```r
+str(mtpl_orig)
+## tibble [163,231 x 18] (S3: tbl_df/tbl/data.frame)
+##  $ ID      : int [1:163231] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ NCLAIMS : int [1:163231] 1 0 0 0 1 0 1 0 0 0 ...
+##  $ AMOUNT  : num [1:163231] 1618 0 0 0 156 ...
+##  $ AVG     : num [1:163231] 1618 NA NA NA 156 ...
+##  $ EXP     : num [1:163231] 1 1 1 1 0.0466 ...
+##  $ COVERAGE: chr [1:163231] "TPL" "PO" "TPL" "TPL" ...
+##  $ FUEL    : chr [1:163231] "gasoline" "gasoline" "diesel" "gasoline" ...
+##  $ USE     : chr [1:163231] "private" "private" "private" "private" ...
+##  $ FLEET   : chr [1:163231] "N" "N" "N" "N" ...
+##  $ SEX     : chr [1:163231] "male" "female" "male" "male" ...
+##  $ AGEPH   : int [1:163231] 50 64 60 77 28 26 26 58 59 34 ...
+##  $ BM      : int [1:163231] 5 5 0 0 9 11 11 11 0 7 ...
+##  $ AGEC    : int [1:163231] 12 3 10 15 7 12 8 14 3 6 ...
+##  $ POWER   : int [1:163231] 77 66 70 57 70 70 55 47 98 74 ...
+##  $ PC      : int [1:163231] 1000 1000 1000 1000 1000 1000 1000 1000 1000 1000 ...
+##  $ TOWN    : chr [1:163231] "BRUSSEL" "BRUSSEL" "BRUSSEL" "BRUSSEL" ...
+##  $ LONG    : num [1:163231] 4.36 4.36 4.36 4.36 4.36 ...
+##  $ LAT     : num [1:163231] 50.8 50.8 50.8 50.8 50.8 ...
+```
+
+---
+
+class: clear
+name: explore-data
+
+Or with `head()`...
+
+
+```r
+head(mtpl_orig) %&gt;% kable(format = 'html')
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; ID &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; NCLAIMS &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; AMOUNT &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; AVG &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; EXP &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; COVERAGE &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; FUEL &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; USE &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; FLEET &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; SEX &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; AGEPH &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; BM &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; AGEC &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; POWER &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; PC &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; TOWN &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; LONG &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; LAT &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1618.0010 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1618.0010 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; TPL &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; gasoline &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; private &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; N &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; BRUSSEL &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.355223 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 50.84539 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; PO &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; gasoline &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; private &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; N &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 64 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 66 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; BRUSSEL &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.355223 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 50.84539 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; TPL &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; diesel &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; private &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; N &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 60 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 70 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; BRUSSEL &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.355223 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 50.84539 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; TPL &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; gasoline &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; private &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; N &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 15 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 57 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; BRUSSEL &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.355223 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 50.84539 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 155.9746 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 155.9746 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0465753 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; TPL &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; gasoline &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; private &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; N &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 70 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; BRUSSEL &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.355223 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 50.84539 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.0000000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; TPL &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; gasoline &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; private &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; N &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 26 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 70 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; BRUSSEL &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.355223 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 50.84539 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+---
+
+class: clear
+name: data-sets-used
+
+Note that the data `mtpl_orig` uses capitals for the variable names
+
+
+```r
+mtpl_orig %&gt;% slice(1:3) %&gt;% select(-LONG, -LAT) %&gt;% kable(format = 'html')
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; ID &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; NCLAIMS &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; AMOUNT &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; AVG &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; EXP &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; COVERAGE &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; FUEL &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; USE &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; FLEET &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; SEX &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; AGEPH &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; BM &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; AGEC &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; POWER &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; PC &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; TOWN &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1618.001 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1618.001 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; TPL &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; gasoline &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; private &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; N &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 77 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; BRUSSEL &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; PO &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; gasoline &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; private &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; N &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 64 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 66 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; BRUSSEL &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; TPL &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; diesel &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; private &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; N &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 60 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 70 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1000 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; BRUSSEL &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+We change this to lower case variables, and rename `exp` to `expo`.
+
+
+```r
+mtpl &lt;- mtpl_orig %&gt;%
+  # rename all columns 
+  rename_all(function(.name) {
+    .name %&gt;% 
+      # replace all names with the lowercase versions
+      tolower 
+    })
+mtpl &lt;- rename(mtpl, expo = exp)
+```
+
+Check `rename_all()` in {dplyr}.
+
+---
+
+class: clear
+name: first-steps-MTPL
+
+
+
+.pull-left[
+
+```r
+dim(mtpl)
+```
+
+
+```
+## [1] 163231     18
+```
+
+
+```r
+mtpl %&gt;% summarize(emp_freq = 
+                      sum(nclaims) / sum(expo))
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; emp_freq &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.1393352 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+```r
+mtpl %&gt;% 
+  group_by(sex) %&gt;% 
+  summarize(emp_freq = sum(nclaims) / sum(expo))
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; sex &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; emp_freq &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1484325 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1361164 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+]
+
+.pull-right[
+
+```r
+g &lt;- ggplot(mtpl, aes(nclaims)) + theme_bw() + 
+     geom_bar(aes(weight = expo), col = KULbg, 
+              fill = KULbg, alpha = 0.5) + 
+     labs(y = "Abs freq (in exposure)") +
+     ggtitle("MTPL - number of claims")
+g
+```
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-21-1.svg" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: clear
+
+.pull-left[
+
+```r
+g &lt;- ggplot(mtpl, aes(nclaims)) + theme_bw() + 
+     geom_bar(aes(weight = expo), col = KULbg, 
+              fill = KULbg, alpha = 0.5) + 
+     labs(y = "Abs freq (in exposure)") +
+     ggtitle("MTPL - number of claims")
+g
+```
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-22-1.svg" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+```r
+g &lt;- ggplot(mtpl, aes(nclaims)) + theme_bw()
+g + geom_bar(aes(y = (..count..)/sum(..count..)), 
+    col = KULbg, fill = KULbg, alpha = 0.5) + 
+  labs(y = "Relative frequency") +
+  ggtitle("MTPL - relative number of claims")
+```
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-24-1.svg" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: clear
+
+.pull-left[
+
+We now step from the barplot to a histogram (in {ggplot2}), see [ggplot2 histogram](http://ggplot2.tidyverse.org/reference/geom_histogram.html). 
+
+Here is the histogram of `bm` showing how the policyholders are distributed over levels in the bonus-malus scale:
+
+
+```r
+g &lt;- ggplot(mtpl, aes(bm)) + theme_bw()
+g + geom_histogram(binwidth = 1, col = KULbg, 
+                   fill = KULbg, alpha = 0.5)
+```
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-26-1.svg" width="60%" style="display: block; margin: auto;" /&gt;
+]
+
+.pull-right[
+
+For the relative frequency histogram
+
+
+```r
+g &lt;- ggplot(mtpl, aes(bm)) + theme_bw()
+g + geom_histogram(aes(y = (..count..)/
+                         sum(..count..)), 
+                   binwidth = 1, col = KULbg, 
+                   fill = KULbg, alpha = 0.5) + 
+  labs(y = "Relative frequency")
+```
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-28-1.svg" width="60%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+name: yourturn
+class: clear
+
+.left-column[
+
+&lt;!-- Add icon library --&gt;
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"&gt;
+
+## &lt;i class="fa fa-edit"&gt;&lt;/i&gt; &lt;br&gt; Your turn
+
+
+]
+
+.right-column[
+
+To get warmed up, let's load the `mtpl` data and do some .KULbginline[basic investigations] into the variables. The idea is to get a feel for the data. 
+
+Your starting point are the instructions in the R script on data explorations from the [course material](https://github.com/katrienantonio/APC-workshop-Productontwikkeling). 
+
+.hi-pink[Q]: you will work through the following exploratory steps.
+
+1. Visualize the distribution of the `ageph` with a histogram.
+
+2. For each age recorded in the data set `mtpl`: what is the total number of observations, the total exposure, and the corresponding total number of claims reported? 
+
+3. Calculate the empirical claim frequency, per unit of exposure, for each age and picture it. Discuss this figure.
+
+4. Repeat the above for `bm`, the level occupied by the policyholder in the Belgian bonus-malus scale. 
+
+&lt;br&gt;
+
+<div class="countdown" id="timer_5fa16edc" style="right:0%;bottom:5%;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+]
+
+---
+
+class: clear
+
+.pull-left[
+
+For .hi-pink[Q.1] a histogram of `ageph`
+
+
+```r
+ggplot(data = mtpl, aes(ageph)) + theme_bw() + 
+      geom_histogram(binwidth = 2, col = KULbg, 
+                     fill = KULbg, alpha = 0.5) +
+      labs(y = "Absolute frequency") +
+      ggtitle("MTPL - age policyholder")
+```
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-30-1.svg" width="65%" style="display: block; margin: auto;" /&gt;
+
+
+]
+
+.pull-right[
+
+For .hi-pink[Q.2] for each `ageph` recorded
+
+
+```r
+mtpl %&gt;% 
+  group_by(ageph) %&gt;% 
+  summarize(tot_claims = sum(nclaims), 
+            tot_expo = sum(expo), tot_obs = n())
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; ageph &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; tot_claims &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; tot_expo &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; tot_obs &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 18 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.621918 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 19 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 93.021918 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 116 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 20 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 113 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 342.284932 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 393 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 21 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 165 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 597.389041 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 701 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 22 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 202 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 778.827397 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 952 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 23 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 297 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1165.358904 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1379 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 24 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 426 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1752.249315 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2028 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 25 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 546 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2343.504110 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2673 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+]
+
+---
+
+class: clear
+
+For .hi-pink[Q.3] for each `ageph` recorded
+.pull-left[
+
+```r
+freq_by_age &lt;- mtpl %&gt;% 
+  group_by(ageph) %&gt;% 
+  summarize(emp_freq = sum(nclaims) / sum(expo))
+
+ggplot(freq_by_age, aes(x = ageph, y = emp_freq)) + 
+                                       theme_bw() +
+  geom_bar(stat = "identity", color = KULbg, 
+                        fill = KULbg, alpha = 0.5) +
+  ggtitle("MTPL - empirical claim freq per 
+                                age policyholder")
+```
+
+For .hi-pink[Q.4] recycle the above instructions and replace `ageph` with `bm`.
+
+
+]
+.pull-right[
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-34-1.svg" width="85%" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+
+# Data sets used in this session - Housing data &lt;img src="img/pipe.png" class="title-hex"&gt; &lt;img src="img/dplyr.png" class="title-hex"&gt; &lt;img src="img/ggplot2.png" class="title-hex"&gt;
+
+We will use the Ames Iowa housing data. There are 2,930 properties in the data set. 
+
+The `Sale_Price` (target or response) was recorded along with 80 predictors, including:
+
+* location (e.g. neighborhood) and lot information
+* house components (garage, fireplace, pool, porch, etc.)
+* general assessments such as overall quality and condition
+* number of bedrooms, baths, and so on. 
+
+More details in [De Cock (2011, Journal of Statistics Education)](http://ww2.amstat.org/publications/jse/v19n3/decock.pdf).
+
+The raw data are at [`http://bit.ly/2whgsQM`](http://bit.ly/2whgsQM) but we will use a processed version found in the [`AmesHousing`](https://github.com/topepo/AmesHousing) package. 
+
+You will load the data with the `make_ames()` function from the `AmesHousing` library, and store the data in the object `ames`:
+
+
+```r
+ames &lt;- AmesHousing::make_ames()
+```
+
+You can now build your own, first exploration of the response variable and the covariates. 
+
+---
+
+name: data-sets-used
+
+# Data sets used in this session - AOV data &lt;img src="img/pipe.png" class="title-hex"&gt; &lt;img src="img/dplyr.png" class="title-hex"&gt; &lt;img src="img/ggplot2.png" class="title-hex"&gt; &lt;img src="img/forcats.png" class="title-hex"&gt;
+
+In your assignment you will be working with country-level data on becoming disabled (*invalidering*) and recovery (*revalidering*).  
+
+These data are available in .csv format, see the course material for a detailed description.
+
+
+```r
+# install.packages("here")
+library(here)
+dir &lt;- here::here()   
+setwd(dir) 
+invalidering &lt;- read.csv('./data/invalidering landelijke data 2019.csv', 
+                   header = TRUE, sep = ";")
+revalidering &lt;- read.csv('./data/revalidering landelijke data 2019.csv', 
+                   header = TRUE, sep = ";")
+
+```
+
+
+
+To get a first feel for these data, think about the following questions: 
+
+* why does `invalidering` have 890 rows?
+* for which years are data available?
+
+---
+
+
+# Data sets used in this session - AOV data &lt;img src="img/pipe.png" class="title-hex"&gt; &lt;img src="img/dplyr.png" class="title-hex"&gt; &lt;img src="img/ggplot2.png" class="title-hex"&gt; &lt;img src="img/forcats.png" class="title-hex"&gt;
+
+Next to the country-level data, you will be working with the policy and claims data from insurance company ABC: 
+
+
+```r
+# install.packages("here")
+library(here)
+dir &lt;- here::here()   
+setwd(dir) 
+polis &lt;- read.csv('./data/polissen verzekeraar ABC 2019.csv', 
+                   header = TRUE, sep = ";", dec = ",")
+schade &lt;- read.csv('./data/schades verzekeraar ABC 2019.csv', 
+                   header = TRUE, sep = ";", dec = ",")
+
+```
+
+
+
+To get a first feel for these data, think about the following questions: 
+
+* what would be a meaningful ordering of the data, to better understand the structure?
+* for which years are data available? What do you notice?
+
+---
+
+name: yourturn
+class: clear
+
+.left-column[
+
+&lt;!-- Add icon library --&gt;
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"&gt;
+
+## &lt;i class="fa fa-edit"&gt;&lt;/i&gt; &lt;br&gt; Your turn
+
+
+]
+
+.right-column[
+
+Let's load the `invalidering` country-level data set and do some .KULbginline[basic investigations] into the variables. The idea is to get a feel for the data. 
+
+.hi-pink[Q]: you will work through the following preparatory steps.
+
+1. In the `invalidering` data set change the variable names as follows: `Beschouwd.Jaar` to `jaar`, `Beroepsklasse` to `beroep`, `Leeftijdsklasse` to `leeft_kl`, `Aantal.validen` to `aant_val`, `Verzekerde.rente.in.euro.s` to `verz_rente` and `Som.uitkeringspercentage.met.ziektedatum.in.de.eerste.9.maanden.van.jaar.t` to `som_uitk_perc`. 
+You can use `rename()` from {dplyr}.
+
+2. Change all variable names to lower case, if necessary.
+
+3. Explore the structure of the data set, e.g. number of observations, types of variables etc.
+
+&lt;br&gt;
+
+<div class="countdown" id="timer_5fa16eb8" style="right:0%;bottom:5%;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+]
+
+---
+
+class:clear
+
+For .hi-pink[Q.1] combined with .hi-pink[Q.2] you can do
+
+
+
+
+
+```r
+invalidering &lt;- as_tibble(invalidering)
+invalidering &lt;- invalidering %&gt;% rename(jaar = Beschouwd.Jaar, beroep = Beroepsklasse, 
+                                        leeft_kl = Leeftijdsklasse, aant_val = Aantal.validen, 
+                                        verz_rente = Verzekerde.rente.in.euro.s, 
+                som_uitk_perc = Som.uitkeringspercentage.met.ziektedatum.in.de.eerste.9.maanden.van.jaar.t)
+```
+
+
+```r
+str(invalidering) %&gt;% kable(format = 'html')
+## tibble [810 x 6] (S3: tbl_df/tbl/data.frame)
+##  $ jaar         : int [1:810] 2004 2004 2004 2004 2004 2004 2004 2004 2004 2004 ...
+##  $ beroep       : int [1:810] 1 1 1 1 1 1 1 1 1 2 ...
+##  $ leeft_kl     : chr [1:810] "15 tm 25" "26 tm 30" "31 tm 35" "36 tm 40" ...
+##  $ aant_val     : int [1:810] 291 1664 4130 4195 3077 3872 2333 1656 176 598 ...
+##  $ verz_rente   : int [1:810] 2236436 19446219 58985108 84335669 58859278 79725314 42002031 24545951 2959686 4957806 ...
+##  $ som_uitk_perc: int [1:810] 0 564 2495 2029 2936 2990 1572 815 0 314 ...
+```
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+class: clear
+
+.pull-left[
+Before you get started, which years, professions and age classes are in this data set?
+
+In base R you would do something like ...
+
+```r
+unique(invalidering$jaar)
+##  [1] 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018
+unique(invalidering$beroep)
+## [1] 1 2 3 4 5 6
+unique(invalidering$leeft_kl)
+## [1] "15 tm 25"  "26 tm 30"  "31 tm 35"  "36 tm 40"  "41 tm 45"  "46 tm 50" 
+## [7] "51 tm 55"  "56 tm 60"  "61 tot 65"
+```
+
+Thus, the data `invalidering` has 15 x 6 x 9 rows, one per year, profession and age group.
+
+
+
+]
+
+.pull-right[
+If you want to stick to {dplyr} instructions, you can go for:
+
+
+```r
+invalidering %&gt;% distinct(jaar)
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; jaar &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2004 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2005 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2006 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2007 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2008 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2009 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2010 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2011 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2012 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2013 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2014 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2015 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2016 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2017 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 2018 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+]
+
+
+---
+
+class: clear
+
+You probably want to treat the variables `beroep` and `leeft_kl` as factor variables.
+
+
+```r
+invalidering &lt;- invalidering %&gt;% mutate(beroep = as.factor(beroep), 
+                                        leeft_kl = as.factor(leeft_kl))
+```
+
+Check the structure of the data set again.
+
+The functions in the {forcats} package (part of the tidyverse) are handy when working with factor variables, e.g.
+
+
+```r
+invalidering &lt;- invalidering %&gt;% mutate(leeft_kl = fct_recode(leeft_kl, "61 tm 65" = "61 tot 65"))
+```
+
+to recode the last level of `leeft_kl`. 
+
+--
+
+In the course we introduced the following definition of the unweighted ('ongewogen') disability probabilities ('invalideringskansen')
+
+`$$i_{x,t} = \frac{\sum_{\text{groep}\ x, t} \text{uitk percentage}}{\sum_{\text{groep}\ x, t} \text{validen}},$$`
+where 'uitkeringspercentage' refers to 'ultimo jaar t, invalidering in eerste 9 maanden'.
+
+
+
+---
+
+
+class: clear
+
+.pull-left[
+
+Let's put this into practice: (recall the definition of variable `som_uitk_perc` from the course documentation)
+
+
+```r
+invalidering &lt;- mutate(invalidering, 
+          inv_probs = som_uitk_perc/aant_val/100)
+```
+
+Now let's do a first plot with `jaar` on the x-axis and one line per `leeft_kl`, one panel per `beroep`
+
+
+```r
+ggplot(invalidering) + 
+  geom_line(aes(x = jaar, y = inv_probs, 
+                color = leeft_kl)) + 
+  facet_wrap( ~ beroep, ncol = 3) + theme_bw()
+```
+
+]
+
+.pull-right[
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-50-1.svg" width="85%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+---
+
+class: clear
+
+.pull-left[
+
+Or a plot with `leeft_kl` on the x-axis, one line per `jaar` and one panel per `beroep`
+
+
+```r
+invalidering &lt;- invalidering %&gt;% 
+            mutate(jaar_fct = as.factor(jaar))
+ggplot(invalidering) + 
+  geom_line(aes(x = leeft_kl, y = inv_probs, 
+           color = jaar_fct, group = jaar_fct)) + 
+           facet_wrap( ~ beroep, ncol = 3) + 
+           theme_bw() 
+```
+
+]
+
+.pull-right[
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-52-1.svg" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: clear
+
+.pull-left[
+
+Instead of working per year, age group and profession, you can aggregate the data before calculating the disability probabilities, e.g.
+
+
+```r
+inv_leeft_kl &lt;- invalidering %&gt;% 
+                group_by(leeft_kl, jaar_fct) %&gt;% 
+                summarize(tot_val = sum(aant_val), 
+                    tot_perc = sum(som_uitk_perc))
+inv_leeft_kl &lt;- mutate(inv_leeft_kl, 
+                    inv_probs = tot_perc/tot_val/100)
+```
+
+
+Playing with the {ggplot2} instructions, you can visualize the data as follows
+
+
+```r
+ggplot(inv_leeft_kl, aes(x = leeft_kl, y = inv_probs, 
+      color = jaar_fct, group = jaar_fct)) + 
+      geom_point() + geom_line() + theme_bw()
+```
+]
+
+.pull-right[
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-55-1.svg" width="85%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+---
+
+name: yourturn
+class: clear
+
+.left-column[
+
+&lt;!-- Add icon library --&gt;
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"&gt;
+
+## &lt;i class="fa fa-edit"&gt;&lt;/i&gt; &lt;br&gt; Your turn
+
+
+]
+
+.right-column[
+
+Let's load the `polis` and `schade` data and do some .KULbginline[basic investigations] into the variables. The idea is to get a feel for the data. 
+
+.hi-pink[Q]: you will work through the following preparatory steps.
+
+1. In the `polis` data set change the variable names `Verzekerde.rente` to `verz_rente`, `minstens.3.mnd.invalide` to `3_mnd_inv` and `wachttijd.in.dagen` into `wcht_dagen`. Or use your own preferred set of variable names. You can use `rename()` from {dplyr}.
+
+2. In the `schade` data set change the variable names `verz.rente` to `verz_rente`, `uitkeringspercentage` to `uitk_perc` and `wachttijd.in.dagen` into `wcht_dagen` and `Ingangsdatum.uitkering.behorende.bij.schadejaar` to `ing_datum`. Or use your own preferred set of variable names.
+
+3. Change all variable names to lower case.
+
+4. Explore the structure of both data sets, e.g. number of observations, types of variables etc.
+
+&lt;br&gt; &lt;br&gt;
+
+<div class="countdown" id="timer_5fa16ec6" style="right:0%;bottom:5%;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+]
+
+---
+
+class:clear
+
+For .hi-pink[Q.1] combined with .hi-pink[Q.3] you can do
+
+
+
+
+
+```r
+polis &lt;- as_tibble(polis)
+polis &lt;- polis %&gt;% rename(verz_rente = Verzekerde.rente, wcht_dagen = wachttijd.in.dagen, 
+                 drie_mnd_inv = minstens.3.mnd.invalide)
+```
+
+Change the variable names to lower case using the `rename_all()` instruction introduced in the MTPL example.
+
+
+
+
+```r
+str(polis) %&gt;% kable(format = 'html')
+## tibble [162,281 x 9] (S3: tbl_df/tbl/data.frame)
+##  $ index       : int [1:162281] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ leeftijd    : int [1:162281] 52 52 46 52 40 40 47 60 54 41 ...
+##  $ geslacht    : chr [1:162281] "M" "M" "M" "M" ...
+##  $ beroep      : int [1:162281] 4 3 4 4 2 4 4 4 4 3 ...
+##  $ verz_rente  : int [1:162281] 5502 4540 4845 9624 84911 25043 5308 3786 3220 1902 ...
+##  $ jaar        : int [1:162281] 2004 2004 2004 2004 2004 2004 2004 2004 2004 2004 ...
+##  $ duur        : num [1:162281] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ drie_mnd_inv: int [1:162281] 0 0 0 0 0 0 0 1 1 0 ...
+##  $ wcht_dagen  : int [1:162281] 7 7 14 180 360 360 14 14 30 14 ...
+```
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+class:clear
+
+For .hi-pink[Q.2] combined with .hi-pink[Q.3] you can do
+
+
+
+
+
+```r
+schade &lt;- as_tibble(schade)
+schade &lt;- schade %&gt;% rename(verz_rente = verz.rente, uitk_perc = uitkeringspercentage, 
+                            wcht_dagen = wachttijd.in.dagen, 
+                            ing_datum = Ingangsdatum.uitkering.behorende.bij.schadejaar)
+```
+
+Change the variable names to lower case using the `rename_all()` instruction introduced in the MTPL example.
+
+
+
+
+```r
+str(schade) %&gt;% kable(format = 'html')
+## tibble [8,291 x 11] (S3: tbl_df/tbl/data.frame)
+##  $ index      : int [1:8291] 1 1 1 1 1 1 1 1 1 1 ...
+##  $ geslacht   : chr [1:8291] "M" "M" "M" "M" ...
+##  $ verz_rente : int [1:8291] 5502 5502 5502 5502 5502 5502 5502 5502 5502 5502 ...
+##  $ uitk_perc  : num [1:8291] 0.72 0.72 0.72 0.72 0.72 0.72 0.72 0.72 0.72 0.72 ...
+##  $ jaar       : int [1:8291] 2017 2016 2015 2014 2013 2012 2011 2010 2009 2008 ...
+##  $ wcht_dagen : int [1:8291] 7 7 7 7 7 7 7 14 7 7 ...
+##  $ schadejaar : int [1:8291] 2006 2006 2006 2006 2006 2006 2006 2006 2006 2006 ...
+##  $ schademaand: int [1:8291] 3 3 3 3 3 3 3 3 3 3 ...
+##  $ leeftijd   : int [1:8291] 52 52 52 52 52 52 52 52 52 52 ...
+##  $ beroep     : int [1:8291] 4 4 4 4 4 4 4 4 4 4 ...
+##  $ ing_datum  : int [1:8291] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...
+```
+
+&lt;table&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+
+class:clear
+
+First, check the years during which observations are recorded in ABC's portfolio
+
+
+```r
+unique(polis$jaar)
+##  [1] 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018
+unique(schade$jaar)
+##  [1] 2017 2016 2015 2014 2013 2012 2011 2010 2009 2008 2007 2006 2018 2005
+```
+
+Thus, you have data for 2004 in the policy but not in the claims data set.
+
+--
+
+It is insightful to order `polis` by `index` and `jaar`
+
+
+```r
+polis &lt;- polis %&gt;% arrange(index, jaar)
+```
+
+and `schade` by `index`, `schadejaar` and `jaar`
+
+
+```r
+schade &lt;- schade %&gt;% arrange(index, schadejaar, jaar)
+```
+
+Inspect the data using `View()`.
+
+
+
+---
+
+class: clear
+
+How about duplicate records, e.g. same `index` and `jaar` in `polis` data set?
+
+
+```r
+polis %&gt;% 
+  group_by(index, jaar) %&gt;% 
+  filter(n() &gt; 1)
+```
+
+... and same `index`, `schadejaar` and `jaar` in `schade` data set?
+
+
+```r
+schade %&gt;% 
+  group_by(index, schadejaar, jaar) %&gt;% 
+  filter(n() &gt; 1)
+```
+
+You will have to propose some data cleaning steps to remove these duplicate observations. 
+
+---
+
+class: clear
+
+How about the unique claims in `schade`? 
+
+
+```r
+schade &lt;- schade %&gt;% 
+  mutate(dev_jaar = jaar - ing_datum + 1)
+```
+
+
+```r
+schade_unique &lt;- schade %&gt;% group_by(index, schadejaar) %&gt;% filter(row_number() == 1)
+schade_unique &lt;- unique(schade_unique$index)
+```
+
+and the unique `polis` numbers
+
+
+```r
+polis_unique &lt;- unique(polis$index)
+```
+
+Now check (or the other way around, to collect the policies that do not report a claim)
+
+
+```r
+length(which(! schade_unique %in% polis_unique))
+## [1] 0
+```
+
+
+---
+
+class: clear
+
+It might also be insightful to create new variables indicating the `start` and `end` year of a claim. 
+
+
+```r
+schade &lt;- schade %&gt;% group_by(index, schadejaar) %&gt;% 
+                    mutate(first_occ = ifelse(row_number() == 1, 1, 0), 
+                           last_occ = ifelse(row_number() == n(), 1, 0))
+```
+
+Verify what these instructions do!
+
+---
+
+class:clear
+
+.pull-left[
+You can do a first exploration of the `polis` data with instructions similar to those used on the MTPL data.
+
+
+```r
+verz_by_leeft &lt;- polis %&gt;% 
+  group_by(leeftijd) %&gt;% 
+  summarize(tot_rente = sum(verz_rente), 
+            tot_obs = n(), 
+            tot_duur= sum(duur),
+            tot_inv = sum(drie_mnd_inv),
+            rel_dis = sum(drie_mnd_inv)/tot_obs,
+            avg_rente = tot_rente/tot_obs)
+```
+
+
+
+And then you can plot for instance
+
+
+```r
+ggplot(verz_by_leeft, 
+       aes(x = leeftijd, y = tot_rente)) + 
+  theme_bw() +
+  geom_bar(stat = "identity", color = KULbg, 
+           fill = KULbg, alpha = 0.5) +
+  ggtitle("Polis - tot verz rente per leeftijd")
+```
+
+]
+
+.pull-right[
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-77-1.svg" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: clear
+
+.pull-left[
+You can do a first exploration of the `polis` data with instructions similar to those used on the MTPL data.
+
+
+```r
+verz_by_geslacht &lt;- polis %&gt;% 
+  group_by(geslacht) %&gt;% 
+  summarize(tot_rente = sum(verz_rente), 
+            tot_obs = n(), 
+            tot_duur= sum(duur),
+            tot_inv = sum(drie_mnd_inv),
+            rel_dis = sum(drie_mnd_inv)/tot_obs,
+            avg_rente = tot_rente/tot_obs) %&gt;%
+  mutate(freq = prop.table(tot_obs))
+```
+
+
+
+And then you can plot for instance
+
+
+```r
+ggplot(verz_by_geslacht, 
+       aes(x = geslacht, y = tot_rente)) + 
+  theme_bw() +
+  geom_bar(stat = "identity", color = KULbg, 
+           fill = KULbg, alpha = 0.5) +
+  ggtitle("Polis - tot verz rente per geslacht")
+```
+
+
+]
+
+.pull-right[
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-81-1.svg" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: clear
+
+.pull-left[
+You can do a first exploration of the `polis` data with instructions similar to those used on the MTPL data.
+
+
+```r
+verz_by_beroep &lt;- polis %&gt;% 
+  group_by(beroep) %&gt;% 
+  summarize(tot_rente = sum(verz_rente), 
+            tot_obs = n(), 
+            tot_duur= sum(duur),
+            tot_inv = sum(drie_mnd_inv),
+            rel_dis = sum(drie_mnd_inv)/tot_obs,
+            avg_rente = tot_rente/tot_obs) %&gt;%
+  mutate(freq = prop.table(tot_obs))
+```
+
+
+
+And then you can plot for instance
+
+
+```r
+ggplot(verz_by_beroep, 
+       aes(x = beroep, y = tot_rente)) + 
+  theme_bw() +
+  geom_bar(stat = "identity", color = KULbg, 
+           fill = KULbg, alpha = 0.5) +
+  ggtitle("Polis - tot verz rente per beroepsklasse")
+```
+
+
+]
+
+.pull-right[
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-85-1.svg" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+class: clear
+
+Note that `leeftijd` is registered in the `polis` data as a numeric variable. 
+
+How can you cluster or bin `leeftijd` into age classes (cfr. the country-level `invalidering`)?
+
+
+```r
+leeft_breaks &lt;- c(15, 25, 30, 35, 40, 45, 50, 55, 60, 65)
+leeft_labels &lt;- unique(invalidering$leeft_kl)
+polis &lt;- polis %&gt;% mutate(leeftijd_fct = cut(leeftijd, breaks = leeft_breaks, labels = leeft_labels))
+```
+
+Now you can repeat the previous visualizations using the factor variable `leeftijd_fct`.
+
+---
+
+class: clear
+
+Let's demonstrate how to subset your data
+
+
+```r
+polis_select &lt;- polis %&gt;% filter(jaar &gt; 2004)
+schade_select &lt;- schade %&gt;% 
+                    select(index, uitk_perc, jaar, schadejaar, 
+                           ing_datum, dev_jaar, first_occ, last_occ)
+```
+
+Try to join both data sets with instructions like these
+
+
+```r
+test &lt;- left_join(polis_select, schade_select, by = c("index" = "index", "jaar" = "jaar"))
+```
+
+Many other `join` type of instructions are available in {dplyr}.
+
+---
+
+class: inverse, center, middle
+name: model-building
+
+# Building linear and generalized linear models in R
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#FAFAFA' size=1px width=796px&gt;&lt;/html&gt;
+
+---
+
+
+# Creating models in R
+
+We introduce and illustrate model building syntax on the famous `ames` housing data.
+
+The **formula** interface using R's [formula rules](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Formulae-for-statistical-models) to specify a *symbolic* representation of the terms:
+
+* response ~ variable, with `model_fn` referring to the specific model function you want to use, e.g. `lm` for linear regression
+
+
+```r
+model_fn(Sale_Price ~ Gr_Liv_Area, data = ames)
+```
+
+* response ~ variable_1 + variable_2
+
+
+```r
+model_fn(Sale_Price ~ Gr_Liv_Area + Neighborhood, data = ames)
+```
+
+* response ~ variable_1 + variable_2 + their interaction
+
+
+```r
+model_fn(Sale_Price ~ Gr_Liv_Area + Neighborhood + Neighborhood:Gr_Liv_Area, data = ames)
+```
+
+* shorthand for all predictors
+
+
+```r
+model_fn(Sale_Price ~ ., data = ames)
+```
+
+---
+
+name: yourturn
+class: clear
+
+.left-column[
+
+&lt;!-- Add icon library --&gt;
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"&gt;
+
+## &lt;i class="fa fa-edit"&gt;&lt;/i&gt; &lt;br&gt; Your turn
+
+
+]
+
+.right-column[
+
+You will now fit some linear regression models on the `ames` housing data. 
+&lt;br&gt; &lt;br&gt; 
+You will explore the model fits with `base` R instructions as well as the functionalities offered by the `broom` package.
+&lt;br&gt; &lt;br&gt;
+.hi-pink[Q]: load the `ames` housing data set via `ames &lt;- AmesHousing::make_ames()`
+
+1. Fit a linear regression model with `Sale_Price` as response and `Gr_Liv_Area` as covariate. Store the resulting object as `model_1`.
+
+2. Repeat your instruction, but now put it between brackets. What happens?
+
+3. Inspect `model_1` with the following set of instructions
+
+- `summary(___)`
+- extract the fitted coefficients, using `___$coefficients`
+- what happens with `summary(___)$coefficients`?
+- extract fitted values, using `___$fitted.values`
+- now try to extract the R&lt;sup&gt;2&lt;/sup&gt; of this model. 
+
+]
+
+---
+
+class: clear
+
+
+
+.hi-pink[Q.1] Linear model with `Sale_Price` as a function of `Gr_Live_Area`
+
+
+```r
+model_1 &lt;- lm(Sale_Price ~ Gr_Liv_Area, data = ames)
+```
+
+
+
+
+.hi-pink[Q.3] Check `model_1` - What happens - do you *like* this display?
+
+
+```r
+summary(model_1)
+```
+
+Now let's extract some meaningful information from `model_1` (using `base` R instructions)
+
+.pull-left[
+
+
+```r
+model_1$coefficients
+```
+
+
+```
+## (Intercept) Gr_Liv_Area 
+##   13289.634     111.694
+```
+
+
+```r
+summary(model_1)$coefficients
+```
+
+
+```
+##              Estimate  Std. Error   t value     Pr(&gt;|t|)
+## (Intercept) 13289.634 3269.702768  4.064478 4.940672e-05
+## Gr_Liv_Area   111.694    2.066073 54.061006 0.000000e+00
+```
+
+]
+
+.pull-right[
+
+
+```r
+head(model_1$fitted.values)
+```
+
+
+```
+##        1        2        3        4        5        6 
+## 198254.9 113367.5 161731.0 248964.0 195239.2 192446.8
+```
+
+
+```r
+summary(model_1)$r.squared
+```
+
+
+```
+## [1] 0.4995379
+```
+
+
+]
+
+---
+
+# Tidy model output &lt;img src="img/broom.png" class="title-hex"&gt;
+
+The package {broom} allows to summarize key information about statistical objects (e.g. a linear regression model) in so-called tidy tibbles. 
+
+This makes it easy to report results, create plots and consistently work with large numbers of models at once. 
+
+We briefly illustrate the three essential verbs of `broom`: `tidy()`, `glance()` and `augment()`.
+
+
+```r
+model_1 %&gt;% broom::tidy() 
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; term &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; estimate &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; std.error &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; statistic &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; p.value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; (Intercept) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13289.634 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3269.702768 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.064478 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.94e-05 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Gr_Liv_Area &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 111.694 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.066073 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 54.061006 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.00e+00 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+```r
+model_1 %&gt;% broom::glance() 
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; r.squared &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; adj.r.squared &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; sigma &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; statistic &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; p.value &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; df &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; logLik &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; AIC &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; BIC &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; deviance &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; df.residual &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; nobs &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0.4995379 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4993669 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 56524.17 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2922.592 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -36217.79 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 72441.58 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 72459.53 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.354907e+12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2928 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2930 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+# Tidy model output &lt;img src="img/broom.png" class="title-hex"&gt;
+
+The package {broom} allows to summarize key information about statistical objects (e.g. a linear regression model) in so-called tidy tibbles. 
+
+This makes it easy to report results, create plots and consistently work with large numbers of models at once. 
+
+We briefly illustrate the three essential verbs of `broom`: `tidy()`, `glance()` and `augment()`.
+
+
+```r
+model_1 %&gt;% broom::augment() %&gt;% slice(1:5)
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; Sale_Price &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Gr_Liv_Area &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .fitted &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .resid &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .std.resid &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .hat &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .sigma &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .cooksd &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 215000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1656 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 198254.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16745.100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2963021 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0003739 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 56532.98 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.64e-05 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 105000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 896 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 113367.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -8367.459 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.1480946 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0008282 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 56533.61 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.10e-06 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 172000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1329 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 161731.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10269.038 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1817097 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0003802 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 56533.51 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.30e-06 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 244000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2110 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 248964.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -4963.976 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0878573 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0008389 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 56533.75 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.20e-06 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 189900 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1629 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 195239.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -5339.162 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0944752 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0003636 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 56533.74 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.60e-06 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+class: clear
+
+.pull-left[
+
+
+```r
+g_lm_1 &lt;- ggplot(data = ames, 
+                 aes(Gr_Liv_Area, Sale_Price)) + 
+  theme_bw() +
+  geom_point(size = 1, alpha = 0.3) +
+  geom_smooth(se = TRUE, method = "lm") +
+  scale_y_continuous(labels = scales::dollar) +
+  ggtitle("Regression with AMES housing data")
+g_lm_1
+```
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-112-1.svg" width="70%" style="display: block; margin: auto;" /&gt;
+
+]
+
+.pull-right[
+
+
+```r
+g_lm_2 &lt;- model_1 %&gt;% broom::augment() %&gt;% 
+ggplot(aes(Gr_Liv_Area, Sale_Price)) + 
+    theme_bw() +
+    geom_point(size = 1, alpha = 0.3) +
+    geom_line(aes(y = .fitted), col = KULbg) +
+    scale_y_continuous(labels = scales::dollar) +
+    ggtitle("Regression with AMES housing data")
+g_lm_2
+
+```
+
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-114-1.svg" width="70%" style="display: block; margin: auto;" /&gt;
+
+
+]
+
+---
+
+class: inverse, center, middle
+name: model-building
+
+# Model building with GLMs and GAMs
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#FAFAFA' size=1px width=796px&gt;&lt;/html&gt;
+
+---
+
+# Linear and Generalized Linear Models
+
+.pull-left-alt[
+
+.center[
+&lt;img src="img/esbjorn_GLM.jpg" alt="Drawing" style="width: 150px; height: 220px;"/&gt;
+&lt;br&gt; &lt;br&gt; &lt;img src="img/de_jong_GLM.jpg" alt="Drawing" style="width: 150px; height: 220px;"/&gt;  
+]
+
+]
+
+.pull-right-alt[
+
+With .hi-pink[linear regression models] `lm(.)`
+
+- model specification
+
+`$$\begin{eqnarray*}
+    \color{#FFA500}{Y} = \color{#e64173}{x}^{'}\color{#20B2AA}{\beta} + \epsilon.
+\end{eqnarray*}$$`
+
+- `\(\epsilon\)` is normally distributed with mean 0 and common variance `\(\sigma^2\)`, thus: `\(\color{#FFA500}{Y}\)` is normal with mean `\(\color{#e64173}{x}^{'}\color{#20B2AA}{\beta}\)` and variance `\(\sigma^2\)`
+
+With .hi-pink[generalized linear regression models] `glm(.)`
+
+- model specification
+
+`$$\begin{eqnarray*}
+    g(E[\color{#FFA500}{Y}]) = \color{#e64173}{x}^{'}\color{#20B2AA}{\beta}.
+\end{eqnarray*}$$`
+
+- `\(g(.)\)` is the link function
+
+- `\(\color{#FFA500}{Y}\)` follows a distribution from the exponential family.
+
+
+]
+
+---
+
+# Generalized Linear Models (GLMs) 
+
+We return to the `mtpl` data set.
+
+.pull-left[
+
+Target variable `nclaims` (frequency)
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-115-1.svg" width="65%" style="display: block; margin: auto;" /&gt;
+
+
+Suitable distributions: Poisson, Negative Binomial.
+
+]
+
+.pull-right[
+
+...  and `avg` (severity).
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-116-1.svg" width="65%" style="display: block; margin: auto;" /&gt;
+
+
+Suitable distributions: log-normal, gamma.
+
+]
+
+---
+
+# A Poisson GLM 
+
+.pull-left[
+
+A brief recap..
+
+
+```r
+freq_by_gender &lt;- mtpl %&gt;% 
+  group_by(sex) %&gt;% 
+  summarize(emp_freq = sum(nclaims) / sum(expo))
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; sex &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; emp_freq &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1484325 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1361164 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Let's picture the empirical gender-specific claim frequency...
+
+
+```r
+ggplot(freq_by_gender, aes(x = sex, y = emp_freq)) +
+  geom_bar(col = KULbg, fill = KULbg, alpha = .5)
+```
+
+]
+
+.pull-right[
+
+
+&lt;img src="APC_productontwikkeling_college_2_files/figure-html/unnamed-chunk-120-1.svg" width="100%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+# A Poisson GLM (cont.)
+
+.pull-left[
+
+
+```r
+freq_glm_1 &lt;- `glm`(nclaims ~ sex, offset = log(expo), 
+                  `family = poisson(link = "log")`, 
+                  `data = mtpl`) 
+```
+
+]
+
+.pull-right[
+  
+Fit a .KULbginline[Poisson GLM], with .KULbginline[logarithmic link] function.
+
+This implies: 
+
+`\(\color{#FFA500}{Y}\)` ~ Poisson, with
+
+`$$\begin{eqnarray*}
+    \log(E[\color{#FFA500}{Y}]) &amp;=&amp; \color{#e64173}{x}^{'}\color{#20B2AA}{\beta},
+\end{eqnarray*}$$`
+
+or, 
+
+`$$E[\color{#FFA500}{Y}] = \exp{(\color{#e64173}{x}^{'}\color{#20B2AA}{\beta})}.$$`
+
+Fit this model on `data = mtpl`. 
+  
+]
+
+---
+  
+# A Poisson GLM (cont.)
+
+.pull-left[
+
+
+```r
+freq_glm_1 &lt;- glm(`nclaims ~ sex`, `offset = log(expo)`, 
+                  family = poisson(link = "log"), 
+                  data = mtpl)
+```
+
+]
+
+.pull-right[
+  
+Use `nclaims` as `\(\color{#FFA500}{Y}\)`. 
+
+Use `sex` as the only (factor) variable in the linear predictor.
+
+Include `log(expo)` as an offset term in the linear predictor.
+
+Then, 
+
+`$$\begin{eqnarray*}
+\color{#e64173}{x}^{'}\color{#20B2AA}{\beta} = \log{(\texttt{expo})}+\beta_0 + \beta_1 \mathbb{I}(\texttt{male}). \end{eqnarray*}$$`
+
+Put otherwise, 
+
+`$$\begin{eqnarray*}
+E[\color{#FFA500}{Y}] = \texttt{expo} \cdot \exp{(\beta_0 + \beta_1 \mathbb{I}(\texttt{male}))} \end{eqnarray*},$$`
+where `\(\texttt{expo}\)` refers to `expo` the exposure variable.
+]
+
+---
+
+class: clear
+
+First, we inspect the output stored in `freq_glm_1` in the usual way: (e.g. AIC, Residual Deviance)
+
+
+
+
+```r
+summary(freq_glm_1)
+```
+
+
+```
+## 
+## Call:
+## glm(formula = nclaims ~ sex, family = poisson(link = "log"), 
+##     data = mtpl, offset = log(expo))
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.5449  -0.5218  -0.5218  -0.4335   5.7100  
+## 
+## Coefficients:
+##             Estimate Std. Error  z value Pr(&gt;|z|)    
+## (Intercept) -1.90763    0.01332 -143.186  &lt; 2e-16 ***
+## sexmale     -0.08662    0.01568   -5.523 3.33e-08 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for poisson family taken to be 1)
+## 
+##     Null deviance: 89944  on 163230  degrees of freedom
+## Residual deviance: 89914  on 163229  degrees of freedom
+## AIC: 127650
+## 
+## Number of Fisher Scoring iterations: 6
+```
+
+---
+
+class: clear
+
+Then, we revisit the model stored in `freq_model_1` using the `broom::tidy()` and the `broom::glance()` instruction
+
+
+```r
+freq_glm_1 %&gt;% broom::tidy() 
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; term &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; estimate &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; std.error &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; statistic &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; p.value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; (Intercept) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.9076251 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0133227 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -143.186324 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; sexmale &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.0866198 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.0156837 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -5.522931 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+```r
+freq_glm_1 %&gt;% broom::glance() 
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; null.deviance &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; df.null &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; logLik &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; AIC &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; BIC &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; deviance &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; df.residual &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; nobs &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 89944.32 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 163230 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -63822.76 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 127649.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 127669.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 89914.22 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 163229 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 163231 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Recall: 
+
+- different models (nested and non-nested) can be compared with AIC or BIC ('smaller is better')
+- nested models can be compared with a drop-in-deviance analysis, use `anova()` with `glm()`
+- need a recap? See my YouTube videos. 
+
+---
+
+class:clear
+
+.pull-left[
+To illustrate variable selection steps with AIC and/or a drop-in-deviance analysis, we build a second GLM. 
+
+
+```r
+freq_glm_2 &lt;- glm(nclaims ~ sex + coverage + use + 
+                            fuel + fleet, 
+                  offset = log(expo), 
+                  family = poisson(link = "log"), 
+                  data = mtpl)
+anova(freq_glm_2)
+```
+
+What do you notice regarding the variables included in `freq_glm_2`?
+]
+
+
+.pull-right[
+
+
+```
+## Analysis of Deviance Table
+## 
+## Model: poisson, link: log
+## 
+## Response: nclaims
+## 
+## Terms added sequentially (first to last)
+## 
+## 
+##          Df Deviance Resid. Df Resid. Dev
+## NULL                    163230      89944
+## sex       1   30.109    163229      89914
+## coverage  2   68.584    163227      89846
+## use       1    0.028    163226      89846
+## fuel      1  181.007    163225      89665
+## fleet     1   24.087    163224      89641
+```
+
+]
+
+---
+
+class: clear
+
+.pull-left[
+
+Now we switch to predicted (or fitted) values obtained with `freq_glm_1` (by means of example). In the traditional way: 
+
+
+```r
+predict(freq_glm_1, type = "response")[1:4]
+##         1         2         3         4 
+## 0.1361164 0.1484325 0.1361164 0.1361164
+```
+
+and for residuals 
+
+
+```r
+resid(freq_glm_1, type = "deviance")[1:4]
+##          1          2          3          4 
+##  1.5035700 -0.5448532 -0.5217593 -0.5217593
+```
+]
+
+.pull-right[
+Mind the specification of `type.predict` when using `broom::augment` with a GLM!
+
+
+```r
+freq_glm_1 %&gt;% broom::augment(type.predict = 
+                                        "response")
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; nclaims &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; sex &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .fitted &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; .resid &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; male &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1361164 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.5035700 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; female &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.1484325 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.5448532 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+]
+
+---
+
+class:clear
+
+The `predict` function of a GLM object offers 3 options: `"link"`, `"response"` or `"terms"`. 
+
+The same options hold when `augment()` is applied to a GLM object.
+
+Let's see how the fitted values at `"response"` level are constructed:
+
+
+```r
+exp(coef(freq_glm_1)[1])
+## (Intercept) 
+##   0.1484325
+exp(coef(freq_glm_1)[1] + coef(freq_glm_1)[2])
+## (Intercept) 
+##   0.1361164
+```
+
+Do you recognize these numbers?
+
+
+
+---
+name: yourturn
+class: clear
+
+.left-column[
+
+&lt;!-- Add icon library --&gt;
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"&gt;
+
+## &lt;i class="fa fa-edit"&gt;&lt;/i&gt; &lt;br&gt; Your turn
+
+
+]
+
+.right-column[
+
+You will further explore GLMs in R with the `glm(.)` function.
+
+.hi-pink[Q]: continue with the `freq_glm_1` object that was created, you will now explicitly call the `predict()` function on this object. 
+
+1. Verify the arguments of `predict.glm` using `? predict.glm`.
+
+2. The help reveals the following structure `predict(.object, .newdata, type = ("..."))` where `.object` is the fitted GLM object, `.newdata` is (optionally) a data frame to look for the features used in the model, and `type` is  `"link"`, `"response"` or `"terms"`. &lt;br&gt; Use `predict` with `freq_glm_1` and a newly created data frame. &lt;br&gt; Explore the different options for `type`, and their connections. 
+
+3. Fit a gamma GLM for `avg` (the claim severity) with log link. &lt;br&gt;
+Use `sex` as the only variable in the model. What do you conclude?
+]
+
+---
+
+class: clear
+
+.pull-left[
+.hi-pink[Q.1] You can access the documentation via `? predict.glm`.
+
+.hi-pink[Q.2] You create new data frames (or tibbles) as follows
+
+
+```r
+male_driver &lt;- data.frame(expo = 1, sex = "male")
+female_driver &lt;- data.frame(expo = 1, sex = "female")
+```
+
+
+
+Next, you apply `predict` with the GLM object `freq_glm_1` and one of these data frames, e.g.
+
+
+```r
+predict(freq_glm_1, newdata = male_driver, 
+                        type = "response")
+```
+
+
+```
+##         1 
+## 0.1361164
+```
+
+]
+
+.pull-right[
+
+.hi-pink[Q.2] Next, you apply `predict` with the GLM object `freq_glm_1` and one of these data frames, e.g.
+
+
+```r
+predict(freq_glm_1, newdata = male_driver, 
+                        type = "response")
+```
+
+
+```
+##         1 
+## 0.1361164
+```
+
+At the level of the linear predictor: 
+
+
+```r
+predict(freq_glm_1, newdata = male_driver, 
+                        type = "link")
+```
+
+
+```
+##         1 
+## -1.994245
+```
+
+
+```r
+exp(predict(freq_glm_1, newdata = male_driver, 
+                        type = "link"))
+```
+
+
+```
+##         1 
+## 0.1361164
+```
+
+]
+
+---
+
+class: clear
+
+.hi-pink[Q.3] For the gamma regression model
+
+
+```r
+sev_glm_1 &lt;- glm(avg ~ sex, family = Gamma(link = "log"), data = mtpl)
+sev_glm_1
+```
+
+
+```
+## 
+## Call:  glm(formula = avg ~ sex, family = Gamma(link = "log"), data = mtpl)
+## 
+## Coefficients:
+## (Intercept)      sexmale  
+##      7.5730      -0.2581  
+## 
+## Degrees of Freedom: 18294 Total (i.e. Null);  18293 Residual
+##   (144936 observations deleted due to missingness)
+## Null Deviance:	    46690 
+## Residual Deviance: 46440 	AIC: 299700
+```
+
+---
+
+# Thanks!  &lt;img src="img/xaringan.png" class="title-hex"&gt;
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+Slides created with the R package [xaringan](https://github.com/yihui/xaringan).
+&lt;br&gt; &lt;br&gt; &lt;br&gt;
+Course material available via 
+&lt;br&gt;
+&lt;svg style="height:0.8em;top:.04em;position:relative;fill:#116E8A;" viewBox="0 0 496 512"&gt;&lt;path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/&gt;&lt;/svg&gt; https://github.com/katrienantonio/APC-workshop-Productontwikkeling
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightLanguage": "R",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"highlightSpans": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

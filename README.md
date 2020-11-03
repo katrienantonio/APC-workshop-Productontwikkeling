@@ -7,7 +7,7 @@ Course materials for the **R workshop**, part of the Productontwikkeling
 module in the Actuarial Practice Cycle, as taught in academic year
 2020-2021 at the University of Amsterdam.
 
-📆 November 3, 2020 <br> 🕙 approx. 3h <br> 📍 Actuarial Practice Cycle,
+📆 November 3, 2020 <br> 🕜 approx. 3h <br> 📌 Actuarial Practice Cycle,
 University of Amsterdam
 
 ## Goals of the computer lab
@@ -44,7 +44,7 @@ necessary) and load the packages. These instructions are also available
 in `prework_installation_packages.R` from the `scripts` folder.
 
 ``` r
-packages <- c("tidyverse", "AmesHousing")
+packages <- c("tidyverse", "AmesHousing", "here", "rstudioapi")
 suppressMessages(packages <- lapply(packages, FUN = function(x) {
   if (!require(x, character.only = TRUE)) {
     install.packages(x)
@@ -59,7 +59,7 @@ We provide a back-up plan in case your local installation of R (and the
 necessary packages) is not working properly. Please join our project on
 RStudio Cloud via the following link
 
-<https://rstudio.cloud/spaces/55584/join?access_code=hnHmPmSNsbu8BdEBJkeMXNPtHBelpnnJBAmF9XTH>
+<https://rstudio.cloud/spaces/102158/join?access_code=dHbMbvLaHHEPxAywOGawHzkg8Wvr4zWq7wo1e%2BQ8>
 
 After creating an account for RStudio you will be able to work with the
 scripts and data sets in the cloud.
