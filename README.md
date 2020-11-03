@@ -7,7 +7,7 @@ Course materials for the **R workshop**, part of the Productontwikkeling
 module in the Actuarial Practice Cycle, as taught in academic year
 2020-2021 at the University of Amsterdam.
 
-📆 November 3, 2020 <br> 🕧 approx. 3h <br> 📌 Actuarial Practice Cycle,
+📆 November 3, 2020 <br> 🕘 approx. 3h <br> 📍 Actuarial Practice Cycle,
 University of Amsterdam
 
 ## Goals of the computer lab
@@ -26,6 +26,9 @@ module.
 | Part 3 - Data wrangling and visualisation | [sheets wrangling](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/sheets/APC_productontwikkeling_college_2.html#wrangling)        |                                                                                                                                                                                                                       |
 | Part 4 - Data sets used in the session    | [sheets data](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/sheets/APC_productontwikkeling_college_2.html#data-sets)             | [script](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/scripts/1_data_sets_MTPL_Ames.R) and [script](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/scripts/2_data_sets_AOV.R) |
 | Part 5 - Model building                   | [sheets forecasting](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/sheets/APC_productontwikkeling_college_2.html#model-building) | [script](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/scripts/3_model_building.R)                                                                                                                |
+
+The sheets are also available in .pdf from
+[here](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/sheets/Hands-on%20Workshop%20in%20R.pdf).
 
 ## Software requirements
 
