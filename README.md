@@ -7,7 +7,7 @@ Course materials for the **R workshop**, part of the Productontwikkeling
 module in the Actuarial Practice Cycle, as taught in academic year
 2020-2021 at the University of Amsterdam.
 
-📆 November 3, 2020 <br> 🕜 approx. 3h <br> 📌 Actuarial Practice Cycle,
+📆 November 3, 2020 <br> 🕧 approx. 3h <br> 📌 Actuarial Practice Cycle,
 University of Amsterdam
 
 ## Goals of the computer lab
@@ -19,13 +19,13 @@ module.
 
 ## Structure and Course Material
 
-| Description                               | Lecture material                                                                                                                                     | R script                                                                               |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| Part 1 - Prologue                         | [sheets prologue](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/sheets/APC_productontwikkeling_college_2.html#prologue)          | [script](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/scripts/.R) |
-| Part 2 - The R Universe                   | [sheets R universe](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/sheets/APC_productontwikkeling_college_2.html#universe)        | [script](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/scripts/.R) |
-| Part 3 - Data wrangling and visualisation | [sheets wrangling](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/sheets/APC_productontwikkeling_college_2.html#wrangling)        | [script](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/scripts/.R) |
-| Part 4 - Data sets used in the session    | [sheets data](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/sheets/APC_productontwikkeling_college_2.html#data-sets)             | [script](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/scripts/.R) |
-| Part 5 - Model building                   | [sheets forecasting](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/sheets/APC_productontwikkeling_college_2.html#model-building) | [script](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/scripts/.R) |
+| Description                               | Lecture material                                                                                                                                     | R script                                                                                                                                                                                                              |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Part 1 - Prologue                         | [sheets prologue](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/sheets/APC_productontwikkeling_college_2.html#prologue)          | [script](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/scripts/0_getting_started.R)                                                                                                               |
+| Part 2 - The R Universe                   | [sheets R universe](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/sheets/APC_productontwikkeling_college_2.html#universe)        |                                                                                                                                                                                                                       |
+| Part 3 - Data wrangling and visualisation | [sheets wrangling](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/sheets/APC_productontwikkeling_college_2.html#wrangling)        |                                                                                                                                                                                                                       |
+| Part 4 - Data sets used in the session    | [sheets data](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/sheets/APC_productontwikkeling_college_2.html#data-sets)             | [script](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/scripts/1_data_sets_MTPL_Ames.R) and [script](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/scripts/2_data_sets_AOV.R) |
+| Part 5 - Model building                   | [sheets forecasting](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/sheets/APC_productontwikkeling_college_2.html#model-building) | [script](https://katrienantonio.github.io/APC-workshop-Productontwikkeling/scripts/3_model_building.R)                                                                                                                |
 
 ## Software requirements
 
